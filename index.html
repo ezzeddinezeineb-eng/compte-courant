@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compte courant</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div style="border:solid;display:flex;flex-direction: row;margin-bottom: 20px">
+        <div id="tab" onclick="activtable()">Table de compte courant</div>
+        <div id="para" onclick="activpar()">Parametres</div>
+    </div>
+    <div id="table">
+        <table id="tab0" border="3px" width="100%">
+
+            <caption>TABLEAU DE COMPTE</caption>
+            <caption>compte <span id="dt">le 8 novembre 2026</span> </caption>
+        </table>
+
+
+        <div id="soldeinitial">
+            <h3>Solde_initial</h3>
+            <input type="text" id="soldei" placeholder="montant" style="width: 25%; margin-top: 10px"><br>
+            <input type="date" id="datesi" style="width: 25%; margin-top: 10px"><br>
+        </div>
+        <div id="soldefinal">
+            <h3>Solde_Final</h3>
+            <label for="datesf1">31/03</label>
+            <input type="radio" id="datesf1" name="title1" style="padding: 10px;margin-top: 10px" checked>
+            <lable for="datesf2">30/06</lable>
+            <input type="radio" id="datesf2" name="title1" style="padding: 10px;margin-top: 10px">
+            <lable for="datesf3">31/09</lable>
+            <input type="radio" id="datesf3" name="title1" style="padding: 10px;margin-top: 10px">
+            <lable for="datesf4">31/12</lable>
+            <input type="radio" id="datesf4" name="title1" style="padding: 10px;margin-top: 10px"><br>
+            <button type="button" onclick="ajouter0()" style="margin-top: 20px;">Ajouter</button>
+        </div>
+        <div id="transaction" style="display: none;">
+            <h3>Saisir une transaction</h3>
+            <input type="text" id="source" placeholder="type de transaction:virement/versement..."
+                style="width: 25%; margin-top: 10px"><br>
+            <input type="text" id="mont" placeholder="montant" style="width: 25%; margin-top: 10px"><br>
+            <label for="newdate">Date operation</label>
+            <input type="date" id="newdate" style="padding: 10px;margin-top: 10px"><br>
+            <label for="cred">Crédit</label>
+            <input type="radio" id="cred" name="title" style="padding: 10px;margin-top: 10px" checked>
+            <label for="cred">Débit</label>
+            <input type="radio" id="deb" name="title" style="padding: 10px;margin-top: 10px">
+            <button type="button" onclick="ajouter()">Ajouter</button>
+        </div>
+
+
+    </div>
+
+
+    <div id="par">
+        <div id="jf">
+            <p>Choisir les jours fériés</p>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>01/01/: Jour de l’An </p><input type="checkbox" checked id="jf1">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>17/12: Révolution</p><input type="checkbox" checked id="jf2">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>20/03: Indépendance</p><input type="checkbox" checked id="jf3">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>09/04: Martyrs</p><input type="checkbox" checked id="jf4">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>01/05: Travail</p><input type="checkbox" checked id="jf5">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>25/07: République </p><input type="checkbox" checked id="jf6">
+            </div>
+            <div style="display: flex ; flex-direction: row;justify-content: space-between;">
+                <p>13/08: Fête de la Femme</p><input type="checkbox" checked id="jf7">
+            </div>
+            <input type="text" id="date2" placeholder="Saisir autre jours feriers: jj/mm jj/mm"
+                style="width: 80%; margin-left: 10%; margin-top: 10px">
+
+
+        </div>
+        <div class="container">
+            <div class="form1">
+
+                <form id="fr" action="" method="POST">
+                    <h3 id="focap">Veuillez entrer les données</h3>
+
+                    <label for="jour">Jour de Banque:</label>
+                    <input type="text" id="jour" name="jour" pattern="[0-9]+" title="seulement des chiffres" required
+                        value="1"><br>
+
+                    <label for="comd">Commission sur le plus fort découvert:</label>
+                    <input type="text" id="comcpfd" name="comd" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.001"><br>
+
+                    <label for="comcpfd">Commission des mouvements débit:</label>
+                    <input type="text" id="comd" name="comcpfd" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.0003"><br>
+                    <label for="noweekend">week-end non inclus</label>
+                    <input type="radio" id="noweekend" name="title" checked>
+                    <label for="weekend">week-end inclus</label>
+                    <input type="radio" id="weekend" name="title"> <br>
+                    <input type="text" id="date" placeholder="Saisir_l’année">
+                    <br>
+
+                    <p>Les mouvements créditeurs ne sont pas rémunérés</p>
+                    <button type="button" onclick="appliquer()">Appliquer les modifications</button>
+
+                </form>
+            </div>
+            <div id="form2">
+                <form id="frm1" method="POST" action="">
+                    <p>Saisir le taux de chaque mois </p>
+                    <label>Taux_Janvier:</label>
+                    <input type="text" id="tmois1" name="tmois1" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Fevrier:</label>
+                    <input type="text" id="tmois2" name="tmois2" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Mars:</label>
+                    <input type="text" id="tmois3" name="tmois3" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Avril:</label>
+                    <input type="text" id="tmois4" name="tmois4" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Mai:</label>
+                    <input type="text" id="tmois5" name="tmois5" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Juin:</label>
+                    <input type="text" id="tmois6" name="tmois6" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Juillet:</label>
+                    <input type="text" id="tmois7" name="tmois7" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Aout:</label>
+                    <input type="text" id="tmois8" name="tmois8" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Septembre:</label>
+                    <input type="text" id="tmois9" name="tmois9" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Octobre:</label>
+                    <input type="text" id="tmois10" name="tmois10" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Novembre:</label>
+                    <input type="text" id="tmois11" name="tmois11" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+                    <label>Taux_Decembre:</label>
+                    <input type="text" id="tmois12" name="tmois12" pattern="0(\.[0-9]+)?" title="seulement des chiffres"
+                        required value="0.08"><br>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="finance.js"></script>
+
+
+</body>
+
+</html>

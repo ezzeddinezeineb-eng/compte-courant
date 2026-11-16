@@ -1,0 +1,198 @@
+body{
+    margin:10px
+}
+#dt{
+    position:absolute;
+    right: 50px;   
+}
+caption{
+    width:100%;
+    align-items: center;  
+}
+.d{
+    background:rgba(61, 60, 60, 0.148);
+}
+.cap{
+    background: rgb(238, 151, 180);
+}
+#capc{
+    font-style: italic;
+}
+
+#f{
+    border:3.25px solid;
+    width:30px;
+    height:30px;
+    font-size:15.25px;
+    border-color:red;
+}
+th{
+    font-size:14px;
+}
+#f1{
+    background:rgb(238, 151, 180);
+    font-size:15.25px
+}
+#f2{
+    border:3.25px solid;
+}
+.mjour{
+    background: rgb(251, 215, 124);
+}
+.t{
+    font-size: italic;
+}
+.row{
+    font-weight:normal ;
+}   
+input[type="text"] {
+  border: 2px solid #888;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+input[type="text"]:focus {
+  border-color: dodgerblue;
+  outline: none;
+}
+ 
+  form {
+    border: 3px solid;
+    margin: auto;
+    margin-top:10px;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;  /* horizontal centering */
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 320px;
+    padding: 50px;
+
+  }
+
+  input[type="text"] {
+    width: 120px;       /* smaller box */
+    height: 28px;
+    padding: 2px 8px;
+    border: 1px solid #888;
+    border-radius: 6px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  p{
+    padding: 10px;
+  }
+  #jf{
+    border: 3px solid;
+    border-radius: 15px;
+    margin: auto;
+    height: 400px;
+    width:400px;
+    
+
+  }
+  #jf p{
+    margin:0px;
+     
+  }
+  .head{
+    width:50%; justify-content: center;display: flex;padding: 10px
+  }
+  .act{
+    background-color: gray;opacity: 75%;color:white
+  }
+  .container{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row-reverse; 
+             /* space between the forms */
+}
+
+.forms-container form {
+  flex: 1;              /* each form takes equal width */
+}
+#frm1 {
+    display: grid;
+    grid-template-columns: max-content max-content;  /* label column | input column */
+    justify-content: center;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+#frm1 p {
+    grid-column: 1 / -1;   /* title spans both columns */
+    text-align: center;
+}
+
+#frm1 br {
+    display: none;         /* not needed in a grid */
+}
+
+#frm1 label {
+    text-align: left;
+    font-size: large;
+    margin: 14px;
+
+}
+
+#frm1 input {
+    width: 120px;
+}
+#frm1{
+    /* layout */
+    display: grid;
+    grid-template-columns: max-content 110px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 16px;
+
+    /* card look */
+    width: 360px;
+    min-height: auto;
+    margin: 20px auto;
+    padding: 28px 30px 32px;
+    background: #ffffff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(40, 70, 120, 0.15);
+    border-top: 6px solid dodgerblue;
+    
+}
+#fr{
+     /* layout */
+    display: grid;
+    grid-template-columns: max-content 110px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 16px;
+
+    /* card look */
+    width: 320px;
+    min-height: auto;
+    margin: 20px auto;
+    padding: 28px 30px 32px;
+    background: #ffffff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(40, 70, 120, 0.15);
+    border-top: 6px solid dodgerblue;
+    margin: auto;
+    margin-top:10px;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;  /* horizontal centering */
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 50px;
+
+}
+
+
